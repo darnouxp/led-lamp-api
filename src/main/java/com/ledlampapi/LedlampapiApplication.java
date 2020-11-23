@@ -1,4 +1,4 @@
-package com.ledlampapi.ledlampapi;
+package com.ledlampapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

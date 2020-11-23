@@ -1,4 +1,4 @@
-package entity;
+package com.ledlampapi.entity;
 
 
 import lombok.Data;
@@ -19,4 +19,11 @@ public class User {
     @Column(name = "name",unique = true, nullable = false, length = 100)
     private String email;
 
+    @Basic
+    @Column(name = "username", nullable = false, length = 30)
+    private String name;
+
+    @Basic
+    @Column(name = "password", nullable = false, length = 200)
+    private String password;
 }
