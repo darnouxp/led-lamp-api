@@ -15,20 +15,13 @@ public class UserController {
 
     private UserService us;
 
-    @Autowired
-    public UserController(UserService userService) {
-        this.us = userService;
-    }
-
     @GetMapping("/list")
     public List<User> getUsers(){
-        UserService us = new UserService(ur);
         return us.getUsers();
     }
 
     @PostMapping("/add")
     public void addUser(@RequestBody AddUserRequest addUserRequest){
-        UserService us = new UserService(ur);
         us.addUser(addUserRequest);
     }
 }
