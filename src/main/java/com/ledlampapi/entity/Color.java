@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "color", schema = "ledlampapi", catalog = "")
+@Table(name = "favorite_color", schema = "ledlampapi", catalog = "")
 public class Color {
 
     @Id
