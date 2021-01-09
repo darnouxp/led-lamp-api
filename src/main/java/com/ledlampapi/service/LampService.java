@@ -1,5 +1,6 @@
 package com.ledlampapi.service;
 
+import com.ledlampapi.entity.Color;
 import com.ledlampapi.entity.User;
 import com.ledlampapi.entity.request.AddUserRequest;
 import com.ledlampapi.entity.request.ChangeColorRequest;
@@ -16,6 +17,10 @@ public class LampService {
     private LampRepository lr;
 
     public void changeColor(ChangeColorRequest changeColorRequest){
-
+        Color color = new Color();
+        color.setRed(changeColorRequest.getRed());
+        color.setRed(changeColorRequest.getRed());
+        color.setRed(changeColorRequest.getRed());
+        lr.save(color);
     }
 }
