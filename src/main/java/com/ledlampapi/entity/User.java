@@ -22,4 +22,16 @@ public class User {
     @Basic
     @Column(name = "password", nullable = false, length = 200)
     private String password;
+
+    @Basic
+    @Column(name = "red", nullable = true, length = 11)
+    private Integer red;
+
+    @Basic
+    @Column(name = "green", nullable = true, length = 11)
+    private Integer green;
+
+    @Basic
+    @Column(name = "blue", nullable = true, length = 11)
+    private Integer blue;
 }
