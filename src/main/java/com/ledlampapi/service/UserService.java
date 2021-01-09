@@ -26,7 +26,6 @@ public class UserService {
         user.setEmail(addUserRequest.getEmail());
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         user.setPassword(passwordEncoder.encode(addUserRequest.getPassword()));
-        user.setName(addUserRequest.getName());
         userRepository.save(user);
     }
 }

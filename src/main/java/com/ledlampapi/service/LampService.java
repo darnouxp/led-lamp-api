@@ -16,6 +16,6 @@ public class LampService {
     private LampRepository lr;
 
     public void changeColor(ChangeColorRequest changeColorRequest){
-
+        System.out.println("working");
     }
 }
