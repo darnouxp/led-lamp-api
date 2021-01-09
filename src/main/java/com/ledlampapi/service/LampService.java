@@ -22,5 +22,7 @@ public class LampService {
         color.setRed(changeColorRequest.getRed());
         color.setRed(changeColorRequest.getRed());
         lr.save(color);
+        System.out.println("working");
+
     }
 }
