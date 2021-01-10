@@ -10,5 +10,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name="esp32", url = "TODO URL du server ")
 public interface ESP32Server {
     @RequestMapping(method = RequestMethod.POST, value = "/changeColor")
-    void setColor(@RequestParam("q") String jsonColor);
+    void setColor(String jsonColor);
 }

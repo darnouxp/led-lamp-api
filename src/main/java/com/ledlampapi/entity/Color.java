@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "favorite_color", schema = "ledlampapi", catalog = "")
+@Table(name = "user", schema = "ledlampapi", catalog = "")
 public class Color {
 
     @Id
@@ -14,14 +14,14 @@ public class Color {
     private long id;
 
     @Basic
-    @Column(name = "red", nullable = false, length = 10)
+    @Column(name = "red", nullable = false, length = 200)
     private int red;
 
     @Basic
-    @Column(name = "green", nullable = false, length = 10)
+    @Column(name = "green", nullable = false, length = 200)
     private int green;
 
     @Basic
-    @Column(name = "blue", nullable = false, length = 10)
+    @Column(name = "blue", nullable = false, length = 200)
     private int blue;
 }
