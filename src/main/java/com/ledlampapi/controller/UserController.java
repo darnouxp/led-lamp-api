@@ -1,6 +1,7 @@
 package com.ledlampapi.controller;
 
 import com.ledlampapi.entity.User;
+import com.ledlampapi.entity.request.AddFavColorRequest;
 import com.ledlampapi.repository.UserRepository;
 import com.ledlampapi.entity.request.AddUserRequest;
 import com.ledlampapi.service.UserService;
@@ -26,5 +27,10 @@ public class UserController {
     @PostMapping("/add")
     public void addUser(@RequestBody AddUserRequest addUserRequest){
         us.addUser(addUserRequest);
+    }
+
+    @PostMapping("/addFavColor")
+    public void addFavColor (@RequestBody AddFavColorRequest addFavColorRequest){
+        us.addFavColor(addFavColorRequest);
     }
 }
