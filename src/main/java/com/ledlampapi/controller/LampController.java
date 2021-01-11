@@ -1,5 +1,6 @@
 package com.ledlampapi.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ledlampapi.entity.request.AddUserRequest;
 import com.ledlampapi.entity.request.ChangeColorRequest;
 import com.ledlampapi.service.LampService;
@@ -21,9 +22,8 @@ public class LampController {
     public LampController(LampService lampService){this.ls = lampService;}
 
     @PostMapping("/color")
-    public void changeColor(@RequestBody ChangeColorRequest changeColorRequest){
+    public void changeColor(@RequestBody String changeColorRequest) throws JsonProcessingException {
         ls.changeColor(changeColorRequest);
-
     }
 
 }
