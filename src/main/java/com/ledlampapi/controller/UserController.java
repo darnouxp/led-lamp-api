@@ -43,7 +43,7 @@ public class UserController {
             User user = us.loginUser(liu);
             if(user != null){
                 final long id = user.getId();
-                return ResponseEntity.ok().body("{\"email\" : \"" + liu.getEmail() + "\", \"id\" : \"" + id + "\"}");
+                return ResponseEntity.ok().body("{\"email\" : \"" + liu.getEmail() + "\"}");
             }else{
                 return ResponseEntity.notFound().build();
             }
