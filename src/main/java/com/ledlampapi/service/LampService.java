@@ -6,7 +6,6 @@ import com.ledlampapi.entity.Color;
 import com.ledlampapi.entity.User;
 import com.ledlampapi.entity.request.AddUserRequest;
 import com.ledlampapi.entity.request.ChangeColorRequest;
-import com.ledlampapi.repository.LampRepository;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
