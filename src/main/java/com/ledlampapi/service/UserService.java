@@ -23,12 +23,12 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public void addUser(AddUserRequest addUserRequest){
+    public User addUser(AddUserRequest addUserRequest){
         User user = new User();
         user.setEmail(addUserRequest.getEmail());
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         user.setPassword(passwordEncoder.encode(addUserRequest.getPassword()));
-        userRepository.save(user);
+        return userRepository.save(user);
     }
 
     public User loginUser(LogInUser addUserRequest){

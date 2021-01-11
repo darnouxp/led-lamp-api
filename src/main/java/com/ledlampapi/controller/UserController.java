@@ -3,7 +3,6 @@ package com.ledlampapi.controller;
 import com.ledlampapi.entity.User;
 import com.ledlampapi.entity.request.AddFavColorRequest;
 import com.ledlampapi.entity.request.LogInUser;
-import com.ledlampapi.repository.UserRepository;
 import com.ledlampapi.entity.request.AddUserRequest;
 import com.ledlampapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +26,8 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    public void addUser(@RequestBody AddUserRequest addUserRequest){
-        us.addUser(addUserRequest);
+    public ResponseEntity<String> addUser(@RequestBody AddUserRequest addUserRequest){
+        return ResponseEntity.ok().body( "{\"email\" : \"" +us.addUser(addUserRequest).getEmail()+ "\"}");
     }
 
     @PostMapping("/addFavColor")
