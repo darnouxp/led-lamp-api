@@ -34,4 +34,16 @@ public class User {
     @Basic
     @Column(name = "blue", nullable = true, length = 11)
     private Integer blue;
+
+    @Basic
+    @Column(name = "firstname", nullable = true, length = 100)
+    private String firstname;
+
+    @Basic
+    @Column(name = "lastname", nullable = true, length = 100)
+    private String lastname;
+
+    @Basic
+    @Column(name = "age", nullable = false, length = 11)
+    private Integer age;
 }

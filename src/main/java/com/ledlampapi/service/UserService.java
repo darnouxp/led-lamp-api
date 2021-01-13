@@ -1,8 +1,10 @@
 package com.ledlampapi.service;
 
+import com.ledlampapi.entity.Color;
 import com.ledlampapi.entity.User;
 import com.ledlampapi.entity.request.AddFavColorRequest;
 import com.ledlampapi.entity.request.AddUserRequest;
+import com.ledlampapi.entity.request.Email;
 import com.ledlampapi.entity.request.LogInUser;
 import com.ledlampapi.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -28,6 +30,9 @@ public class UserService {
         user.setEmail(addUserRequest.getEmail());
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         user.setPassword(passwordEncoder.encode(addUserRequest.getPassword()));
+        user.setFirstname(addUserRequest.getFirstname());
+        user.setLastname(addUserRequest.getLastname());
+        user.setAge(addUserRequest.getAge());
         return userRepository.save(user);
     }
 
@@ -45,16 +50,34 @@ public class UserService {
         return null;
     }
 
-    public void addFavColor(AddFavColorRequest addFavColorRequest) {
+    public Color addFavColor(AddFavColorRequest addFavColorRequest) {
         User user = userRepository.searchEmail(addFavColorRequest.getEmail());
         user.setRed(addFavColorRequest.getRed());
         user.setGreen(addFavColorRequest.getGreen());
         user.setBlue(addFavColorRequest.getBlue());
         userRepository.save(user);
+        Color color = new Color();
+        color.setRed(user.getRed());
+        color.setBlue(user.getBlue());
+        color.setGreen(user.getGreen());
+        return color;
     }
 
     public User getUserFromEmail(String email){
         List<User> users =  userRepository.findByEmail(email);
         return users.isEmpty() ? null : users.get(0);
+    }
+
+    public Color getFavColor(Email email) {
+        List<User> users =  userRepository.findByEmail(email.getEmail());
+        User user =  users.isEmpty() ? null : users.get(0);
+        Color color = new Color();
+        color.setRed(user.getRed());
+        color.setBlue(user.getBlue());
+        color.setGreen(user.getGreen());
+        System.out.println(color.getBlue());
+        System.out.println(color.getRed());
+        System.out.println(color.getGreen());
+        return color;
     }
 }

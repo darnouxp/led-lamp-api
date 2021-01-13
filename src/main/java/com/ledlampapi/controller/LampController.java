@@ -1,12 +1,10 @@
 package com.ledlampapi.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.ledlampapi.entity.request.AddUserRequest;
-import com.ledlampapi.entity.request.ChangeColorRequest;
+import com.ledlampapi.entity.Color;
 import com.ledlampapi.service.LampService;
-import org.springframework.cloud.openfeign.FeignClient;
-import com.ledlampapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +20,9 @@ public class LampController {
     public LampController(LampService lampService){this.ls = lampService;}
 
     @PostMapping("/color")
-    public void changeColor(@RequestBody String changeColorRequest) throws JsonProcessingException {
-        ls.changeColor(changeColorRequest);
+    public ResponseEntity<String> changeColor(@RequestBody String changeColorRequest) throws JsonProcessingException {
+        Color color = ls.changeColor(changeColorRequest);
+        return ResponseEntity.ok().body("{\"red\" : \"" + color.getRed() + "\",\"green\" : \""+color.getGreen()+ "\",\"blue\" : \""+color.getBlue()+"\"}");
     }
 
 }
