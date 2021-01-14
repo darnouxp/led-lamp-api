@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ledlampapi.entity.Color;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 
@@ -23,5 +24,10 @@ public class LampService {
         HttpEntity<Color> request = new HttpEntity<>(color);
         restTemplate.postForObject(esp32URL + "/changeColor", request, String.class); //send color request to esp32
         return color;
+    }
+
+    public String getLuminosity() {
+        ResponseEntity<String> response = restTemplate.getForEntity(esp32URL + "/getLuminosity", String.class);
+        return response.getBody();
     }
 }

@@ -5,10 +5,7 @@ import com.ledlampapi.entity.Color;
 import com.ledlampapi.service.LampService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/lamp")
@@ -25,5 +22,8 @@ public class LampController {
         return ResponseEntity.ok().body("{\"red\" : \"" + color.getRed() + "\",\"green\" : \""+color.getGreen()+ "\",\"blue\" : \""+color.getBlue()+"\"}");
     }
 
-
+    @GetMapping("/getLuminosity")
+    public String getLuminosity() throws JsonProcessingException {
+        return ls.getLuminosity();
+    }
 }
