@@ -46,4 +46,8 @@ public class User {
     @Basic
     @Column(name = "age", nullable = false, length = 11)
     private Integer age;
+
+    @Basic
+    @Column(name = "sex", nullable = true, length = 100)
+    private String sex;
 }

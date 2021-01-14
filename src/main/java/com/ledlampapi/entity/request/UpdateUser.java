@@ -3,10 +3,9 @@ package com.ledlampapi.entity.request;
 import lombok.Data;
 
 @Data
-public class AddUserRequest {
+public class UpdateUser {
 
     private String email;
-    private String password;
     private String firstname;
     private String lastname;
     private Integer age;

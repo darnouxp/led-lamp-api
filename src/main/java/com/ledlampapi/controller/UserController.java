@@ -2,15 +2,13 @@ package com.ledlampapi.controller;
 
 import com.ledlampapi.entity.Color;
 import com.ledlampapi.entity.User;
-import com.ledlampapi.entity.request.AddFavColorRequest;
-import com.ledlampapi.entity.request.Email;
-import com.ledlampapi.entity.request.LogInUser;
-import com.ledlampapi.entity.request.AddUserRequest;
+import com.ledlampapi.entity.request.*;
 import com.ledlampapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -69,5 +67,17 @@ public class UserController {
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/email")
+    public User getUser(@RequestParam String email, HttpServletRequest request){
+        System.out.println(request.getParameter("email"));
+        User user = us.getUserFromEmail(email);
+        return user;
+    }
+
+    @PostMapping("/update")
+    public User updateUser(@RequestBody UpdateUser updateUser){
+        return us.updateUser(updateUser);
     }
 }

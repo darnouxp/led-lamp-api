@@ -2,10 +2,7 @@ package com.ledlampapi.service;
 
 import com.ledlampapi.entity.Color;
 import com.ledlampapi.entity.User;
-import com.ledlampapi.entity.request.AddFavColorRequest;
-import com.ledlampapi.entity.request.AddUserRequest;
-import com.ledlampapi.entity.request.Email;
-import com.ledlampapi.entity.request.LogInUser;
+import com.ledlampapi.entity.request.*;
 import com.ledlampapi.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -33,6 +30,16 @@ public class UserService {
         user.setFirstname(addUserRequest.getFirstname());
         user.setLastname(addUserRequest.getLastname());
         user.setAge(addUserRequest.getAge());
+        user.setSex(addUserRequest.getSex());
+        return userRepository.save(user);
+    }
+
+    public User updateUser(UpdateUser updateUser){
+        User user = userRepository.searchEmail(updateUser.getEmail());
+        user.setSex(updateUser.getSex());
+        user.setLastname(updateUser.getLastname());
+        user.setFirstname(updateUser.getFirstname());
+        user.setAge(updateUser.getAge());
         return userRepository.save(user);
     }
 
