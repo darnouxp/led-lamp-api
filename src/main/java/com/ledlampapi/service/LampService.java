@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 public class LampService {
 
     ObjectMapper objectMapper = new ObjectMapper();
-    String esp32URL = "http://localhost:8080"; //A MODIFIER
+    String esp32URL = "http://172.20.10.3";
     RestTemplate restTemplate = new RestTemplate();
 
     public Color changeColor(String changeColorRequest) throws JsonProcessingException {
@@ -21,7 +21,7 @@ public class LampService {
         Color color = objectMapper.readValue(changeColorRequest, Color.class); //Create color object from parameter
 
         HttpEntity<Color> request = new HttpEntity<>(color);
-        restTemplate.postForObject(esp32URL + "/changeColor", request, Color.class); //send color request to esp32
+        restTemplate.postForObject(esp32URL + "/changeColor", request, String.class); //send color request to esp32
         return color;
     }
 }

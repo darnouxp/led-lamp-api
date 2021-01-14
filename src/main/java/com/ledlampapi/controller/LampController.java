@@ -25,4 +25,5 @@ public class LampController {
         return ResponseEntity.ok().body("{\"red\" : \"" + color.getRed() + "\",\"green\" : \""+color.getGreen()+ "\",\"blue\" : \""+color.getBlue()+"\"}");
     }
 
+
 }
